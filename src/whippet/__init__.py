@@ -158,7 +158,7 @@ def config_initialise(
                 "margin": 100,
                 "padding": 100,
                 "radiation_damage_model": True,    #
-                "sensitivity_coefficient": 0.022,   #
+                "sensitivity_coefficient": 0.011,   #
                 "slice_thickness": 5.0,
             },
         }
@@ -382,20 +382,22 @@ def simulate_and_reconstruct_single(
         os.makedirs(data_directory)
 
     # Set filenames
-    config = os.path.join(data_directory, "config.yaml")
-    sample = os.path.join(data_directory, "sample.h5")
-    exit_wave = os.path.join(data_directory, "exit_wave.mrc")
-    optics = os.path.join(data_directory, "optics.mrc")
-    image = os.path.join(data_directory, "image.mrc")
-    config_rebinned = os.path.join(data_directory, "config_rebinned.yaml")
-    image_rebinned = os.path.join(data_directory, "image_rebinned.mrc")
-    exit_wave_rebinned = os.path.join(data_directory, "exit_wave_rebinned.mrc")
-    optics_rebinned = os.path.join(data_directory, "optics_rebinned.mrc")
-    exit_wave_rec = os.path.join(data_directory, "exit_wave_rec.mrc")
-    optics_rec = os.path.join(data_directory, "optics_rec.mrc")
-    rec = os.path.join(data_directory, "rec.mrc")
-    coordinates = os.path.join(data_directory, "coords.csv")
-    average_prefix = os.path.join(data_directory, "average")
+    high_res_addition = "_pixel_tilt_senscoef"
+
+    sample = os.path.join(data_directory, f"sample{high_res_addition}.h5")
+    exit_wave = os.path.join(data_directory, f"exit_wave{high_res_addition}.mrc")
+    optics = os.path.join(data_directory, f"optics{high_res_addition}.mrc")
+    image = os.path.join(data_directory, f"image{high_res_addition}.mrc")
+    config = os.path.join(data_directory, f"config{high_res_addition}.yaml")
+    config_rebinned = os.path.join(data_directory, f"config_rebinned{high_res_addition}.yaml")
+    image_rebinned = os.path.join(data_directory, f"image_rebinned{high_res_addition}.mrc")
+    exit_wave_rebinned = os.path.join(data_directory, f"exit_wave_rebinned{high_res_addition}.mrc")
+    optics_rebinned = os.path.join(data_directory, f"optics_rebinned{high_res_addition}.mrc")
+    exit_wave_rec = os.path.join(data_directory, f"exit_wave_rec{high_res_addition}.mrc")
+    optics_rec = os.path.join(data_directory, f"optics_rec{high_res_addition}.mrc")
+    rec = os.path.join(data_directory, f"rec{high_res_addition}.mrc")
+    coordinates = os.path.join(data_directory, f"coords{high_res_addition}.csv")
+    average_prefix = os.path.join(data_directory, f"average{high_res_addition}")
 
     # Setup the config file
     if not os.path.exists(config):
