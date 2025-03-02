@@ -384,8 +384,8 @@ def simulate_and_reconstruct_single(
     # Set filenames
     high_res_addition = "_pixel_tilt_senscoef"
 
-    sample = os.path.join(data_directory, f"sample{high_res_addition}.h5")
-    exit_wave = os.path.join(data_directory, f"exit_wave{high_res_addition}.mrc")
+    sample = os.path.join(data_directory, f"sample.h5")
+    exit_wave = os.path.join(data_directory, f"exit_wave.mrc")
     optics = os.path.join(data_directory, f"optics{high_res_addition}.mrc")
     image = os.path.join(data_directory, f"image{high_res_addition}.mrc")
     config = os.path.join(data_directory, f"config{high_res_addition}.yaml")
@@ -414,16 +414,16 @@ def simulate_and_reconstruct_single(
             pixel_size,
         )
 
-    # Generate the sample
-    if not is_sample_valid(sample, config):
-        parakeet.command_line.sample.new(["-c", config, "-s", sample])
-        parakeet.command_line.sample.add_molecules(["-c", config, "-s", sample])
+    # # Generate the sample
+    # if not is_sample_valid(sample, config):
+    #     parakeet.command_line.sample.new(["-c", config, "-s", sample])
+    #     parakeet.command_line.sample.add_molecules(["-c", config, "-s", sample])
 
-    # Simulate the exit wave
-    if not is_exit_wave_valid(exit_wave, sample, config):
-        parakeet.command_line.simulate.exit_wave(
-            ["-c", config, "-s", sample, "-e", exit_wave]
-        )
+    # # Simulate the exit wave
+    # if not is_exit_wave_valid(exit_wave, sample, config):
+    #     parakeet.command_line.simulate.exit_wave(
+    #         ["-c", config, "-s", sample, "-e", exit_wave]
+    #     )
 
     # Simulate optics
     if not is_optics_valid(optics, exit_wave, config):
