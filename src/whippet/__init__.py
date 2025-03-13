@@ -102,7 +102,7 @@ def config_initialise(
             "microscope": {
                 "beam": {
                     "electrons_per_angstrom": dose,
-                    "energy": 300,                   #
+                    "energy": 600,                   #
                     "illumination_semiangle": 0.02,
                     "acceleration_voltage_spread": 8.0e-07,
                     "energy_spread": 2.66e-06,
@@ -157,8 +157,8 @@ def config_initialise(
                 "mp_loss_width": None,
                 "margin": 100,
                 "padding": 100,
-                "radiation_damage_model": True,    #
-                "sensitivity_coefficient": 0.011,   #
+                "radiation_damage_model": False,    #
+                "sensitivity_coefficient": 0.0,   #
                 "slice_thickness": 5.0,
             },
         }

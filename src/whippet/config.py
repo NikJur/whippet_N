@@ -37,7 +37,7 @@ class Config(BaseModel):
     pixel_size: float = Field(1.0, description="The pixel size to use (A)")
 
     final_binning: int = Field(
-        8, description="The binning for the output reconstruction"
+        4, description="The binning for the output reconstruction"
     )
 
     pdb: List[str] = Field(None, description="The PDB filenames")
@@ -85,7 +85,7 @@ def example() -> Config:
             "step_angle": 3,
             "num_images": 41,
             "pixel_size": 1.0,
-            "final_binning": 8,
+            "final_binning": 4,
         }
     )
 
