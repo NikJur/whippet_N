@@ -382,7 +382,7 @@ def simulate_and_reconstruct_single(
         os.makedirs(data_directory)
 
     # Set filenames
-    high_res_addition = "_pixel_tilt_senscoef"
+    high_res_addition = "_pixel_tilt_senscoef_2_noRadiation"
 
     sample = os.path.join(data_directory, f"sample.h5")
     exit_wave = os.path.join(data_directory, f"exit_wave.mrc")
